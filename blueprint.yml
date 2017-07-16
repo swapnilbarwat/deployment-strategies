@@ -1,9 +1,9 @@
 name: voting:0.0.1
 gateways:
-  80: voting-frontend
-  81: result-frontend
+  80/http: voting-frontend/webport
+  81/http: result-frontend/webport
 clusters:
-  voting:  # cluster 1
+  voting-frontend:  # cluster 1
     services:
       breed:
         name: voting-frontend:0.0.1
@@ -11,12 +11,12 @@ clusters:
         ports:
           webport: 80/http                
         dependencies: # Vamp will check dependencies are available
-          backend1: redis  
+          voting: redis
       scale:
         cpu: 0.2      
         memory: 1024MB
-        instances: 1               
-  result:  # cluster 2
+        instances: 1 
+  result-frontend:  # cluster 2
     services:
       breed:
         name: result-frontend:0.0.1
@@ -24,7 +24,7 @@ clusters:
         ports:
           webport: 81/http
         dependencies: # Vamp will check dependencies are available
-          backend1: postgres 
+          result: postgres 
       scale:
         cpu: 0.2       
         memory: 1024MB
@@ -38,3 +38,7 @@ clusters:
         cpu: 0.2       
         memory: 64MB
         instances: 1
+  voting:
+    breed: redis
+  result:
+    breed: postgres
