@@ -1,4 +1,7 @@
 name: voting:0.0.1
+gateways:
+  80/http: voting-frontend/webport
+  81/http: result-frontend/webport
 clusters:
   voting-frontend:  # cluster 1
     services:
