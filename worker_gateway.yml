@@ -1,0 +1,4 @@
+name: worker-frontend
+routes:
+  worker-frontend:0.0.1:
+    weight: 100%

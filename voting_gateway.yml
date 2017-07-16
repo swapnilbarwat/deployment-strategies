@@ -1,0 +1,5 @@
+name: voting-frontend
+port: 80/http
+routes:
+  voting-frontend:0.0.1:
+    weight: 100%

@@ -1,0 +1,5 @@
+name: result-frontend
+port: 81/http
+routes:
+  result-frontend:0.0.1:
+    weight: 100%
