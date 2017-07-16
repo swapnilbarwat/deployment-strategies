@@ -38,7 +38,7 @@ clusters:
           webport: 5432/tcp  
       scale:
         cpu: 0.2       
-        memory: 64MB
+        memory: 1024MB
         instances: 1
   voting:
     breed: redis
