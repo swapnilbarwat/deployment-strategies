@@ -1,4 +1,7 @@
 name: voting:0.0.1
+gateways:
+  80/http: voting-frontend/webport
+  81/http: result-frontend/webport
 clusters:
   voting-frontend:  # cluster 1
     services:
@@ -32,8 +35,8 @@ clusters:
         name: worker-backend:0.0.1
         deployable: harshals/worker-backend:0.0.1
       scale:
-        cpu: 0.2       
-        memory: 1024MB
+        cpu: 0.4      
+        memory: 2048MB
         instances: 1
   voting:
     breed: redis
