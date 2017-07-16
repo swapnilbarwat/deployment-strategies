@@ -31,9 +31,6 @@ clusters:
       breed:
         name: worker-backend:0.0.1
         deployable: harshals/worker-backend:0.0.1
-        ports:
-          webport: 5432/tcp  
-          webport: 6379/tcp  
       scale:
         cpu: 0.2       
         memory: 1024MB
