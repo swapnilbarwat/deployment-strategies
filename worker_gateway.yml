@@ -1,4 +1,5 @@
 name: worker-frontend
+port: 6379/tcp
 routes:
   worker-frontend:0.0.1:
     weight: 100%
