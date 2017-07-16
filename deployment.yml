@@ -1,9 +1,6 @@
 ---
 name: voting-frontend
 
-environment_variables:
-  recommendation.route: "/api/v1"
-
 clusters:
 
   voting:
