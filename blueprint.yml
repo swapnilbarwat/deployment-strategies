@@ -1,19 +1,26 @@
-name: voting:0.0.2
-gateways:
-  80/http: voting-frontend/webport
+name: voting-frontend:0.0.1
 clusters:
-  voting-frontend:  # cluster 1
+  sava: # cluster 1
     services:
       breed:
         name: voting-frontend:0.0.1
         deployable: harshals/voting-frontend:0.0.1
         ports:
-          webport: 80/http                
-        dependencies: # Vamp will check dependencies are available
-          voting: redis
+          webport: 80/http
+        dependencies:
+          backend: redis
       scale:
-        cpu: 0.2      
+        cpu: 0.2
         memory: 1024MB
-        instances: 1 
-  voting:
-    breed: redis
+        instances: 1
+  backend: # cluster 2
+    services:
+      breed:
+        name: redis
+        deployable: redis
+        ports:
+          webport: 5432/http
+      scale:
+        cpu: 0.2
+        memory: 1024MB
+        instances: 1
