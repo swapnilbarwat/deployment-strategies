@@ -1,4 +1,4 @@
-name: voting:0.0.1
+name: voting:0.0.2
 gateways:
   80/http: voting-frontend/webport
 clusters:
