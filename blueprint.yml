@@ -23,6 +23,7 @@ clusters:
         deployable: harshals/result-frontend:0.0.1
         ports:
           webport: 81/http
+          webport: 5858/http
         dependencies: # Vamp will check dependencies are available
           result: postgres 
       scale:
