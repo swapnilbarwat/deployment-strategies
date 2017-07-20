@@ -5,4 +5,4 @@ clusters:
       breed: redis
   voting-frontend:
     services:
-      breed: voting-frontend:0.0.1
+      breed: voting-frontend
