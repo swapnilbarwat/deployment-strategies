@@ -1,26 +1,8 @@
-name: voting-frontend:0.0.1
+name: voting-frontend
 clusters:
-  sava: # cluster 1
+  db:
     services:
-      breed:
-        name: voting-frontend:0.0.1
-        deployable: harshals/voting-frontend:0.0.1
-        ports:
-          webport: 80/http
-        dependencies:
-          backend: redis
-      scale:
-        cpu: 0.2
-        memory: 1024MB
-        instances: 1
-  backend: # cluster 2
+      breed: redis
+  voting-frontend:
     services:
-      breed:
-        name: redis
-        deployable: redis
-        ports:
-          webport: 5432/http
-      scale:
-        cpu: 0.2
-        memory: 1024MB
-        instances: 1
+      breed: voting-frontend:0.0.1
